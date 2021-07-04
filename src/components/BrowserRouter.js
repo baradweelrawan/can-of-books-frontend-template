@@ -1,12 +1,41 @@
 import React, { Component } from 'react'
 import { withAuth0 } from '@auth0/auth0-react';
+// import { Router } from 'react-router-dom';
+import BestBooks from '../BestBooks';
+import LoginButton from './LoginButton';
+import Profile from'../components/Profile';
 
- class browserRouter extends Component {
+
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+
+} from "react-router-dom";
+
+class browserRouter extends Component {
     render() {
         return (
-            <div>
-               <h1>This the browserRouter page</h1>  
-            </div>
+            <>
+                <Router>
+                    <Link to="/">Home</Link>
+                    <Link to="/profile">Profile</Link>
+                </Router>
+                <Switch>
+                    <Route exact path='/'>
+                        {
+                            this.props.auth0.isAuthenticated ?
+                            <BestBooks/>
+                            : <LoginButton/>
+                        }
+                    </Route>
+                    <Route exact path='/Profile'>
+                        <Profile/>
+                        </Route>
+                </Switch>
+            </>
         )
     }
 }
