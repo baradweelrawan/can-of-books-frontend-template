@@ -5,8 +5,6 @@ import BestBooks from '../BestBooks';
 import LoginButton from './LoginButton';
 import Profile from'../components/Profile';
 
-
-
 import {
     BrowserRouter as Router,
     Switch,
@@ -34,6 +32,9 @@ class browserRouter extends Component {
                     <Route exact path='/Profile'>
                         <Profile/>
                         </Route>
+                        {/* <Route  path='/LoginButton'>
+                    <LoginButton/>
+                </Route> */}
                 </Switch>
             </>
         )
